@@ -10,7 +10,7 @@ module.exports = app => {
     })
 
     app.route(admin + '/curso/visualizar').get((req, res) => {
-        res.render('admin/curso/editar_curso')
+        res.render('admin/curso/visualizar_cursos')
     })
 
     app.route(admin + '/curso/detalhes').get((req, res) => {
