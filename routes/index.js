@@ -1,7 +1,6 @@
-const router = require('express').Router()
-
-router.get('/', (req, res) => {
-    res.render('login')
-})
-
-module.exports = router
+module.exports = app => {
+    app.route('/').get((req, res) => {
+        //console.log(res.log)
+        res.render('login')
+    })
+}

@@ -1,20 +1,23 @@
 const { engine } = require('express-handlebars')
-const server = {
-    express : require('express'),
-    bodyParser : require('body-parser'),
-    mongoose : require('mongoose'),
-    path: require('path')
-}
+const express = require('express')
+const bodyParser = require('body-parser')
+const consign = require('consign')
 
-let app = server.express()
-app.use(server.bodyParser.urlencoded({extended:true}))
-app.use(server.bodyParser.json())
+/*Create a express instance... */
+let app = express()
+
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
 
 app.engine('handlebars', engine())
 app.set('view engine', 'handlebars')
 
+app.use(express.static('public'))
+
+consign()
+    //.then('config')
+    .include('routes')
+    .into(app)
+
 /*Export data */
-module.exports = {
-    app : app,
-    server: server
-}
+module.exports = app
