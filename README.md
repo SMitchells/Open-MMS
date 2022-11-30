@@ -6,7 +6,7 @@ This system stay in development and need more updates.
 # Install
 
 1. Clone project to folder.
-2. In console use 'npm i', for download dependecies.
+2. In console use 'npm i', for download dependencies.
 3. Run with Node ./start.js
 
 
