@@ -3,7 +3,7 @@ module.exports = app => {
     let admin = '/admin'
 
     app.route(admin + '/aluno/cadastrar').get((req, res) => {
-        res.render('admin/aluno/cadastrar_aluno')
+        res.render('admin/aluno/cadastrar')
     })
 
     app.route(admin + '/aluno/cadastrar').post((req, res) => {
@@ -12,14 +12,14 @@ module.exports = app => {
     })
 
     app.route(admin + '/aluno/editar').get((req, res) => {
-        res.render('admin/aluno/editar_aluno')
+        res.render('admin/aluno/editar')
     })
 
     app.route(admin + '/aluno/visualizar').get((req, res) => {
-        res.render('admin/aluno/visualizar_alunos')
+        res.render('admin/aluno/visualizar')
     })
 
-    app.route(admin + '/aluno/vizualizar_aluno').get((req, res) => {
-        res.render('admin/aluno/cadastrar_aluno')
+    app.route(admin + '/aluno/detalhes').get((req, res) => {
+        res.render('admin/aluno/detalhes')
     })
 }
