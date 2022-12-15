@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const consign = require('consign')
 
+
 /*Create a express instance... */
 let app = express()
 
@@ -15,8 +16,10 @@ app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 consign()
-    //.then('config')
     .include('routes')
+    .then('models')
+    .then('controllers')
+    .then('config/connections')
     .into(app)
 
 /*Export data */
