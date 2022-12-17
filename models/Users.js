@@ -1,12 +1,14 @@
 const userSchema = require('./schemas/usersSchema')
 
 module.exports = {
+
     create : (app, body) => {
         let User = app
-                    .config
-                    .connections
-                    .database
-                    .mongoose() .model('Users', userSchema)
+                .config
+                .connections
+                .database
+                .mongoose()
+                .model('Users', userSchema)
 
         //Montando a query
         let user = new User({
@@ -23,15 +25,29 @@ module.exports = {
             }
         })
 
-        /* Save new user 
-        user.save((error, result) => {
+        ///Save new user 
+        user.save((error, success) => {
+            console.log('Entrei no save')
             if(error){
-                return error
+                result = 'See log for this error...'
+            }else{
+                result = 'See success_log for this log.'
             }
+        })
 
-            return result
-        })*/
+        return result
+    }, //End create func
 
-        return user
-    } //End create func
+    read : (app, req) => {
+        let User = app
+                    .config
+                    .connections
+                    .database
+                    .mongoose()
+                    .model('Users', userSchema)
+
+        User.find().lean().then(Users => {
+           req.flash('show_msg',)
+        })
+    }
 }

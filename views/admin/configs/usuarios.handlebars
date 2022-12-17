@@ -1,5 +1,14 @@
 <h5>Cadastro de Alunos</h5>
-        <hr>
+<hr>
+{{#each Show}}
+  <ul>
+    <li>Nome: {{name}}</li>
+    <li>status: {{status}}</li>
+    <li>Email: {{email}}</li>
+    <li>Acesso: {{access}}</li>
+  </ul>
+{{/each}}
+<hr>
         <form action="/admin/usuarios/cadatro" method="post">
             <div class="form-row">              
                 <div class="form-group col-md-7">
